@@ -1,11 +1,17 @@
 from pydantic import BaseModel
-from LocationModel import LocationData
+from dependencies import PyObjectId
+from database import db
 
 class DealerInfo(BaseModel):
-    id: int
-    name: str
+    userid: PyObjectId
     phoneno: int
     nature_of_material : str
     quantity : int
     city : str
-    state : LocationData
+    state : PyObjectId
+
+class Dealeruserid(BaseModel):
+    userid: PyObjectId
+
+dealerdb = db["dealer_db"]
+    
