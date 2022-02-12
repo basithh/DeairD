@@ -1,16 +1,25 @@
 from pydantic import BaseModel
-from RouteModel import RouteData
+from dependencies import PyObjectId
+from database import db
 
 # course model to store courses
 class DriverInfo(BaseModel):
-    id: int
-    name: str
+    userid: PyObjectId
     age: int
-    Trucknumber: str
+    trucknumber: str
     phoneno: int
     truckcap: int
     transportername: str
     experience: int
-    interestroute: list=[RouteData]
+    interestroute: list=[PyObjectId]
+
+class Driveruserid(BaseModel):
+    userid: PyObjectId
+
+driverdb = db["driver_db"]
+
+
+
+
 
 
