@@ -7,7 +7,7 @@ class DealerInfo(BaseModel):
     phoneno: int
     nature_of_material : str
     quantity : int
-    city : str
+    city : PyObjectId
     state : PyObjectId
 
 class Dealeruserid(BaseModel):

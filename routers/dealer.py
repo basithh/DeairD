@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from model.DealerModel import dealerdb, Dealeruserid, DealerInfo
 from model.RouteModel import  statedb,citydb
 from commonschema import serializeLists, serializeList
-from dependencies import PyObjectId
 from bson import ObjectId
 
 router = APIRouter()
@@ -25,7 +24,7 @@ async def find_for_dealer(userid: Dealeruserid):
 @router.get("/state")
 async def state_dealer():
     state_data = statedb.find()
-    return serializeList(state_data)
+    return {"statelist":serializeList(state_data)}
 
 @router.get("/city")
 async def city_dealer(stateid:str):

@@ -12,6 +12,7 @@ class DriverInfo(BaseModel):
     experience: int
     interestroute: List[PyObjectId]
 
+
 class Driveruserid(BaseModel):
     userid: PyObjectId
 
