@@ -24,7 +24,7 @@ async def find_for_dealer(userid: Dealeruserid):
 @router.get("/state")
 async def state_dealer():
     state_data = statedb.find()
-    return {"statelist":serializeList(state_data)}
+    return serializeList(state_data)
 
 @router.get("/city")
 async def city_dealer(stateid:str):
