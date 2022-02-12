@@ -9,7 +9,7 @@ from commonschema import serializeDict
 
 router = APIRouter()
 
-@router.post("/regist")
+@router.post("/register")
 async def driver_register(driver: DriverInfo):
     driverdb.insert_one(dict(driver))
     return {"message": "Sucess", "code": 106}

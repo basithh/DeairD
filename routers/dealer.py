@@ -1,9 +1,9 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
-from typing import Optional
 from model.DealerModel import dealerdb, Dealeruserid, DealerInfo
-from model.UserModel import userdb
-from commonschema import serializeDict
+from model.RouteModel import  statedb,citydb
+from commonschema import serializeLists, serializeList
+from dependencies import PyObjectId
+from bson import ObjectId
 
 router = APIRouter()
 
@@ -22,4 +22,13 @@ async def find_for_dealer(userid: Dealeruserid):
     else:
         return {"message":"Not sucess","code":105}
 
+@router.get("/state")
+async def state_dealer():
+    state_data = statedb.find()
+    return serializeList(state_data)
 
+@router.get("/city")
+async def city_dealer(stateid:str):
+    city_data = citydb.find({"stateid":ObjectId(stateid)})
+    return serializeLists(city_data)
+    

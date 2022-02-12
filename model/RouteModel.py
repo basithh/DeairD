@@ -13,5 +13,7 @@ class RouteData(BaseModel):
     tostate: PyObjectId 
     forstate: PyObjectId 
     
-
+#locationdb = db["location_db"]
 routedb = db["route_db"]
+citydb = db["city_db"]
+statedb = db["state_db"]
