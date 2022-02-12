@@ -11,7 +11,7 @@ class DriverInfo(BaseModel):
     truckcap: int
     transportername: str
     experience: int
-    interestroute: list=[PyObjectId]
+    interestroute: list=[str]
 
 class Driveruserid(BaseModel):
     userid: PyObjectId

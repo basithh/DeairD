@@ -18,7 +18,7 @@ async def dealer_register(dealer: DealerInfo):
 async def find_for_dealer(userid: Dealeruserid):
     checkdealer =  dealerdb.find_one(dict(userid))
     if (checkdealer):
-        return {"dealer":checkdealer['_id'],'code':104}
+        return {"dealer":str(checkdealer["_id"]),'code':104}
     else:
         return {"message":"Not sucess","code":105}
 

@@ -16,6 +16,7 @@ async def register_user(user: UserModel):
                 "message": "Sucess",
                 "code": 100,
                 "userid": str(usercheck["_id"]),
+                "username": usercheck["username"],
                 "typeuser": usercheck["typeuser"]
             }
 

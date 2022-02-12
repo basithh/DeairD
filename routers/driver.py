@@ -1,9 +1,15 @@
 from fastapi import APIRouter
+from pydantic import BaseModel
 from model.DriverModel import DriverInfo, driverdb, Driveruserid
+from typing import Optional
+from model.UserModel import userdb
+from commonschema import serializeDict
+
+
 
 router = APIRouter()
 
-@router.post("/register")
+@router.post("/regist")
 async def driver_register(driver: DriverInfo):
     driverdb.insert_one(dict(driver))
     return {"message": "Sucess", "code": 106}
